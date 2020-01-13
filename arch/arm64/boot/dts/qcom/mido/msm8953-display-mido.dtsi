@@ -10,7 +10,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-
+ 
 #include "dsi-panel-nt35532-fhd-video.dtsi"
 #include "dsi-panel-nt35596-fhd-video.dtsi"
 #include "dsi-panel-nt35596-tianma-fhd-video.dtsi"
@@ -18,103 +18,102 @@
 #include "dsi-panel-r63350-ebbg-fhd-video.dtsi"
 #include "dsi-panel-ili9885-boe-fhd-video.dtsi"
 
-&dsi_nt35532_fhd_vid {
-        qcom,mdss-dsi-panel-timings-phy-v2 = [24 1f 08 09 05 03 04 a0
-                24 1f 08 09 05 03 04 a0
-                24 1f 08 09 05 03 04 a0
-                24 1f 08 09 05 03 04 a0
-                24 1b 08 09 05 03 04 a0];
-        qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
-};
+&soc {
+	dsi_panel_pwr_supply: dsi_panel_pwr_supply {
+		#address-cells = <1>;
+		#size-cells = <0>;
 
-&dsi_nt35596_fhd_vid {
-        qcom,mdss-dsi-panel-timings-phy-v2 = [24 1f 08 09 05 03 04 a0
-                24 1f 08 09 05 03 04 a0
-                24 1f 08 09 05 03 04 a0
-                24 1f 08 09 05 03 04 a0
-                24 1b 08 08 05 03 04 a0];
-        qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+		qcom,panel-supply-entry@0 {
+			reg = <0>;
+			qcom,supply-name = "vdd";
+			qcom,supply-min-voltage = <2850000>;
+			qcom,supply-max-voltage = <2850000>;
+			qcom,supply-enable-load = <100000>;
+			qcom,supply-disable-load = <100>;
+		};
+
+		qcom,panel-supply-entry@1 {
+			reg = <1>;
+			qcom,supply-name = "vddio";
+			qcom,supply-min-voltage = <1800000>;
+			qcom,supply-max-voltage = <1800000>;
+			qcom,supply-enable-load = <100000>;
+			qcom,supply-disable-load = <100>;
+		};
+
+		qcom,panel-supply-entry@2 {
+			reg = <2>;
+			qcom,supply-name = "lab";
+			qcom,supply-min-voltage = <4600000>;
+			qcom,supply-max-voltage = <6000000>;
+			qcom,supply-enable-load = <100000>;
+			qcom,supply-disable-load = <100>;
+		};
+
+		qcom,panel-supply-entry@3 {
+			reg = <3>;
+			qcom,supply-name = "ibb";
+			qcom,supply-min-voltage = <4600000>;
+			qcom,supply-max-voltage = <6000000>;
+			qcom,supply-enable-load = <100000>;
+			qcom,supply-disable-load = <100>;
+			qcom,supply-post-on-sleep = <10>;
+		};
+	};
 };
 
 &dsi_nt35596_tianma_fhd_vid {
-        qcom,mdss-dsi-panel-timings-phy-v2 = [23 1e 08 09 05 03 04 a0
-                23 1e 08 09 05 03 04 a0
-                23 1e 08 09 05 03 04 a0
-                23 1e 08 09 05 03 04 a0
-                23 1a 08 09 05 03 04 a0];
-        qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+	qcom,mdss-dsi-panel-timings-phy-v2 = [23 1e 08 09 05 03 04 a0
+			23 1e 08 09 05 03 04 a0
+			23 1e 08 09 05 03 04 a0
+			23 1e 08 09 05 03 04 a0
+			23 1a 08 09 05 03 04 a0];
+};
+
+&dsi_nt35596_tianma_2_fhd_vid {
+	qcom,mdss-dsi-panel-timings-phy-v2 = [23 1e 08 09 05 03 04 a0
+			23 1e 08 09 05 03 04 a0
+			23 1e 08 09 05 03 04 a0
+			23 1e 08 09 05 03 04 a0
+			23 1a 08 09 05 03 04 a0];
+};
+
+&dsi_nt35596_fhd_vid {
+	qcom,mdss-dsi-panel-timings-phy-v2 = [24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+	        24 1b 08 08 05 03 04 a0];
+};
+
+&dsi_nt35532_fhd_vid {
+	qcom,mdss-dsi-panel-timings-phy-v2 = [24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+			24 1b 08 09 05 03 04 a0];
 };
 
 &dsi_otm1911_fhd_vid {
 	qcom,mdss-dsi-panel-timings-phy-v2 = [23 1E 07 08 05 03 04 a0
-		23 1E 07 08 05 03 04 a0
-		23 1E 07 08 05 03 04 a0
-		23 1E 07 08 05 03 04 a0
-		23 18 07 08 05 03 04 a0];
-        qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+			23 1E 07 08 05 03 04 a0
+			23 1E 07 08 05 03 04 a0
+			23 1E 07 08 05 03 04 a0
+			23 18 07 08 05 03 04 a0];
 };
-  
+
 &dsi_r63350_ebbg_fhd_vid {
 	qcom,mdss-dsi-panel-timings-phy-v2 = [24 1f 08 09 05 03 04 a0
-		24 1f 08 09 05 03 04 a0
-		24 1f 08 09 05 03 04 a0
-		24 1f 08 09 05 03 04 a0
-		24 1b 08 09 05 03 04 a0];
-        qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+			24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+	        24 1b 08 09 05 03 04 a0];
 };
 
 &dsi_ili9885_boe_fhd_vid {
 	qcom,mdss-dsi-panel-timings-phy-v2 = [24 1f 08 09 05 03 04 a0
-		24 1f 08 09 05 03 04 a0
-		24 1f 08 09 05 03 04 a0
-		24 1f 08 09 05 03 04 a0
-		24 1B 08 09 05 03 04 a0];
-        qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
-};
-
-&mdss_mdp {
-	qcom,mdss-pref-prim-intf = "dsi";
-};
-
-&mdss_dsi {
-	hw-config = "single_dsi";
-};
-
-&mdss_dsi0 {
-	lab-supply = <&lab_regulator>;
-	ibb-supply = <&ibb_regulator>;
-	/delete-property/ vdd-supply;
-
-        qcom,dsi-pref-prim-pan = <&dsi_nt35596_fhd_vid>;
-	pinctrl-names = "mdss_default", "mdss_sleep";
-	pinctrl-0 = <&mdss_dsi_active &mdss_te_active>;
-	pinctrl-1 = <&mdss_dsi_suspend &mdss_te_suspend>;
-	qcom,platform-te-gpio = <&tlmm 24 0>;
-	qcom,platform-reset-gpio = <&tlmm 61 0>;
-};
-
-&mdss_dsi1 {
-	status = "disabled";
-};
-
-&mdss_dsi0_pll {
-        /delete-property/ qcom,dsi-pll-ssc-en;
-        /delete-property/ qcom,dsi-pll-ssc-mode;
-};
-
-&mdss_dsi1_pll {
-        /delete-property/ qcom,dsi-pll-ssc-en;
-        /delete-property/ qcom,dsi-pll-ssc-mode;
-};
-
-&mdss_te_active {
-        mux {
-                function = "gpio";
-        };
-};
-
-&mdss_te_suspend {
-        mux {
-                function = "gpio";
-        };
+			24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+	        24 1B 08 09 05 03 04 a0];
 };
