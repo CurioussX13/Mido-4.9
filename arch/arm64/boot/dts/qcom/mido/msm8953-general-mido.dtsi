@@ -558,11 +558,12 @@
 	status = "disabled";
 };
 
-&firmware {
-	android {
-		/delete-node/ vbmeta;
-		fstab {
-		
+firmware: firmware {
+		android {
+			compatible = "android,firmware";
+
+	                fstab {
+				compatible = "android,fstab";
 			system {
                                 	compatible = "android,system";
                                 	dev = "/dev/block/platform/soc/7824900.sdhci/by-name/system";
@@ -572,8 +573,12 @@
                                 	status = "ok";
                                 };
 			vendor {
-				dev = "/dev/block/platform/soc/7824900.sdhci/by-name/cust";
-				fsmgr_flags = "wait";
+			        compatible = "android,vendor";
+					dev = "/dev/block/platform/soc/7824900.sdhci/by-name/cust";
+					type = "ext4";
+					fsmgr_flags = "wait";
+					mnt_flags = "ro,barrier=1,discard";
+					status = "ok";
 			};
 		};
 	};
