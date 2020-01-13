@@ -558,7 +558,7 @@
 	status = "disabled";
 };
 
-firmware: firmware {
+&firmware {
 		android {
 			compatible = "android,firmware";
 
