@@ -1678,6 +1678,7 @@
 		qcom,msm-bus,name = "usb3";
 		qcom,msm-bus,num-cases = <3>;
 		qcom,msm-bus,num-paths = <1>;
+		qcom,detect-dpdm-floating;
 		qcom,msm-bus,vectors-KBps =
 					<61 512 0 0>,
 					<61 512 240000 800000>,
@@ -1798,10 +1799,10 @@
 		vdda33-supply = <&pm8953_l13>;
 		qcom,vdd-voltage-level = <0 925000 925000>;
 
-		qcom,qusb-phy-init-seq = <0xf8 0x80
-					0xb3 0x84
-					0x83 0x88
-					0xc0 0x8c
+		qcom,qusb-phy-init-seq = <0xF8 0x80
+				0x53 0x84
+				0x93 0x88
+				0xCf 0x8C
 					0x14 0x9c
 					0x30 0x08
 					0x79 0x0c
@@ -1809,6 +1810,7 @@
 					0x00 0x90
 					0x9f 0x1c
 					0x00 0x18>;
+			
 		phy_type= "utmi";
 		qcom,phy-clk-scheme = "cml";
 		qcom,major-rev = <1>;
