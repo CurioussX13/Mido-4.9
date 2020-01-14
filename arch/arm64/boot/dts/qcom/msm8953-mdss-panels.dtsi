@@ -1,4 +1,5 @@
-/* Copyright (c) 2015-2018, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2015-2016, The Linux Foundation. All rights reserved.
+ * Copyright (C) 2018 XiaoMi, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -10,6 +11,11 @@
  * GNU General Public License for more details.
  */
 
+#include "dsi-panel-nt35532-fhd-video.dtsi"  //Rainbow first LCD add by lancelot
+#include "dsi-panel-nt35596-fhd-video.dtsi"  //Rainbow second LCD add by lancelot
+#include "dsi-panel-nt35596-tianma-fhd-video.dtsi"
+#include "dsi-panel-nt35596-tianma_2-fhd-video.dtsi"
+#include "dsi-panel-otm1911-fhd-video.dtsi"
 #include "dsi-panel-sim-video.dtsi"
 #include "dsi-panel-sim-dualmipi-video.dtsi"
 #include "dsi-panel-sim-cmd.dtsi"
@@ -21,13 +27,11 @@
 #include "dsi-panel-r69006-1080p-video.dtsi"
 #include "dsi-panel-r69006-1080p-cmd.dtsi"
 #include "dsi-panel-truly-wuxga-video.dtsi"
-#include "dsi-panel-lt8912-480p-video.dtsi"
-#include "dsi-panel-lt8912-1080p-video.dtsi"
-#include "dsi-panel-hx8399c-fhd-plus-video.dtsi"
-#include "dsi-panel-hx83100a-800p-video.dtsi"
-#include "dsi-panel-boent51021-1200p-video.dtsi"
-#include "dsi-panel-hx8394d-wxga-video.dtsi"
-#include "dsi-panel-inxnt51021-1200p-video.dtsi"
+#include "dsi-panel-nt35596-tianma-fhd-video.dtsi"
+#include "dsi-panel-nt35532-fhd-video.dtsi"
+#include "dsi-panel-nt35596-fhd-video.dtsi"
+#include "dsi-panel-r63350-ebbg-fhd-video.dtsi"
+#include "dsi-panel-ili9885-boe-fhd-video.dtsi"
 
 &soc {
 	dsi_panel_pwr_supply: dsi_panel_pwr_supply {
@@ -51,6 +55,7 @@
 			qcom,supply-enable-load = <100000>;
 			qcom,supply-disable-load = <100>;
 		};
+
 		qcom,panel-supply-entry@2 {
 			reg = <2>;
 			qcom,supply-name = "lab";
@@ -59,6 +64,7 @@
 			qcom,supply-enable-load = <100000>;
 			qcom,supply-disable-load = <100>;
 		};
+
 		qcom,panel-supply-entry@3 {
 			reg = <3>;
 			qcom,supply-name = "ibb";
@@ -71,21 +77,68 @@
 	};
 };
 
+&dsi_nt35596_tianma_fhd_vid {
+	qcom,mdss-dsi-panel-timings-phy-v2 = [23 1e 08 09 05 03 04 a0
+			23 1e 08 09 05 03 04 a0
+			23 1e 08 09 05 03 04 a0
+			23 1e 08 09 05 03 04 a0
+			23 1a 08 09 05 03 04 a0];
+};
+
+&dsi_nt35596_tianma_2_fhd_vid {
+	qcom,mdss-dsi-panel-timings-phy-v2 = [23 1e 08 09 05 03 04 a0
+			23 1e 08 09 05 03 04 a0
+			23 1e 08 09 05 03 04 a0
+			23 1e 08 09 05 03 04 a0
+			23 1a 08 09 05 03 04 a0];
+};
+
+&dsi_nt35596_fhd_vid {
+	qcom,mdss-dsi-panel-timings-phy-v2 = [24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+	        24 1b 08 08 05 03 04 a0];
+};
+
+&dsi_nt35532_fhd_vid {
+	qcom,mdss-dsi-panel-timings-phy-v2 = [24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+			24 1b 08 09 05 03 04 a0];
+};
+
+&dsi_otm1911_fhd_vid {
+	qcom,mdss-dsi-panel-timings-phy-v2 = [23 1E 07 08 05 03 04 a0
+			23 1E 07 08 05 03 04 a0
+			23 1E 07 08 05 03 04 a0
+			23 1E 07 08 05 03 04 a0
+			23 18 07 08 05 03 04 a0];
+};
+
+&dsi_r63350_ebbg_fhd_vid {
+	qcom,mdss-dsi-panel-timings-phy-v2 = [24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+	        24 1b 08 09 05 03 04 a0];
+};
+
+&dsi_ili9885_boe_fhd_vid {
+	qcom,mdss-dsi-panel-timings-phy-v2 = [24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+			24 1f 08 09 05 03 04 a0
+	        24 1B 08 09 05 03 04 a0];
+};
+
 &dsi_truly_1080_vid {
 	qcom,mdss-dsi-panel-timings-phy-v2 = [23 1e 08 09 05 03 04 a0
 		23 1e 08 09 05 03 04 a0
 		23 1e 08 09 05 03 04 a0
 		23 1e 08 09 05 03 04 a0
 		23 1a 08 09 05 03 04 a0];
-	qcom,esd-check-enabled;
-	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
-	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
-	qcom,mdss-dsi-panel-status-command-state = "dsi_hs_mode";
-	qcom,mdss-dsi-panel-status-value = <0x1c>;
-	qcom,mdss-dsi-panel-on-check-value = <0x1c>;
-	qcom,mdss-dsi-panel-status-read-length = <1>;
-	qcom,mdss-dsi-panel-max-error-count = <3>;
-
 };
 
 &dsi_truly_1080_cmd {
@@ -94,14 +147,6 @@
 		23 1e 08 09 05 03 04 a0
 		23 1e 08 09 05 03 04 a0
 		23 1a 08 09 05 03 04 a0];
-	qcom,esd-check-enabled;
-	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
-	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
-	qcom,mdss-dsi-panel-status-command-state = "dsi_hs_mode";
-	qcom,mdss-dsi-panel-status-value = <0x1c>;
-	qcom,mdss-dsi-panel-on-check-value = <0x1c>;
-	qcom,mdss-dsi-panel-status-read-length = <1>;
-	qcom,mdss-dsi-panel-max-error-count = <3>;
 };
 
 &dsi_r69006_1080p_video {
@@ -118,33 +163,6 @@
 		24 1f 08 09 05 03 04 a0
 		24 1f 08 09 05 03 04 a0
 		24 1b 08 09 05 03 04 a0];
-};
-
-&dsi_hx8399c_truly_vid {
-	qcom,mdss-dsi-panel-timings-phy-v2 = [24 1f 08 09 05 03 04 a0
-		24 1f 08 09 05 03 04 a0
-		24 1f 08 09 05 03 04 a0
-		24 1f 08 09 05 03 04 a0
-		24 1c 08 09 05 03 04 a0];
-	qcom,mdss-dsi-h-front-porch = <52>;
-	qcom,mdss-dsi-h-back-porch = <48>;
-	qcom,mdss-dsi-h-pulse-width = <8>;
-	qcom,mdss-dsi-v-back-porch = <8>;
-	qcom,mdss-dsi-v-front-porch = <8>;
-	qcom,mdss-dsi-v-pulse-width = <4>;
-	qcom,esd-check-enabled;
-	qcom,mdss-dsi-panel-status-check-mode = "reg_read";
-	qcom,mdss-dsi-panel-status-command = [06 01 00 01 00 00 01 0a];
-	qcom,mdss-dsi-panel-status-command-state = "dsi_lp_mode";
-	qcom,mdss-dsi-panel-status-value = <0x9d 0x9d 0x9d 0x9d>;
-	qcom,mdss-dsi-panel-on-check-value = <0x9d 0x9d 0x9d 0x9d>;
-	qcom,mdss-dsi-panel-status-read-length = <4>;
-	qcom,mdss-dsi-panel-max-error-count = <3>;
-	qcom,mdss-dsi-min-refresh-rate = <48>;
-	qcom,mdss-dsi-max-refresh-rate = <60>;
-	qcom,mdss-dsi-pan-enable-dynamic-fps;
-	qcom,mdss-dsi-pan-fps-update =
-		"dfps_immediate_porch_mode_vfp";
 };
 
 &dsi_adv7533_1080p {
@@ -169,36 +187,4 @@
 		24 1f 08 09 05 03 04 a0
 		24 1f 08 09 05 03 04 a0
 		24 1c 08 09 05 03 04 a0];
-};
-
-&dsi_boyi_hx83100a_800p_video {
-	qcom,mdss-dsi-panel-timings-phy-v2 = [1f 1c 05 06 03 03 04 a0
-		1f 1c 05 06 03 03 04 a0
-		1f 1c 05 06 03 03 04 a0
-		1f 1c 05 06 03 03 04 a0
-		1f 10 05 06 03 03 04 a0];
-};
-
-&dsi_boent51021_1200p_video {
-	qcom,mdss-dsi-panel-timings-phy-v2 = [25 20 08 0a 06 03 04 a0
-		25 20 08 0a 06 03 04 a0
-		25 20 08 0a 06 03 04 a0
-		25 20 08 0a 06 03 04 a0
-		25 1d 08 0a 06 03 04 a0];
-};
-
-&dsi_hx8394d_kingdisplay_vid {
-	qcom,mdss-dsi-panel-timings-phy-v2 = [1c 19 02 03 01 03 04 a0
-		1c 19 02 03 01 03 04 a0
-		1c 19 02 03 01 03 04 a0
-		1c 19 02 03 01 03 04 a0
-		1c 07 02 03 01 03 04 a0];
-};
-
-&dsi_inxnt51021_1200p_video {
-	qcom,mdss-dsi-panel-timings-phy-v2 = [25 20 08 0A 06 03 04 a0
-		25 20 08 0A 06 03 04 a0
-		25 20 08 0A 06 03 04 a0
-		25 20 08 0A 06 03 04 a0
-		25 1D 08 0A 06 03 04 a0];
 };
