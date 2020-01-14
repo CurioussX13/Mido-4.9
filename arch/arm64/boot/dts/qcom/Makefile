@@ -492,38 +492,9 @@ ifeq ($(CONFIG_MACH_XIAOMI_MSM8953),y)
 dtb-$(CONFIG_MACH_XIAOMI_MIDO) += msm8953-qrd-sku3.dtb \
 dtb-$(CONFIG_MACH_XIAOMI_TISSOT) += msm8953-qrd-sku3-tissot.dtb
 else
-dtb-$(CONFIG_ARCH_MSM8953) += msm8953-cdp.dtb \
+dtb-$(CONFIG_ARCH_MSM8953) += 
 msm8953-qrd-sku3.dtb \
-	msm8953-mtp.dtb \
-	msm8953-ext-codec-mtp.dtb \
-	msm8953-rcm.dtb \
-	apq8053-rcm.dtb \
-	msm8953-ext-codec-rcm.dtb \
-	apq8053-cdp.dtb \
-	apq8053-ipc.dtb \
-	msm8953-ipc.dtb \
-	apq8053-mtp.dtb \
-	apq8053-ext-audio-mtp.dtb \
-	apq8053-ext-codec-rcm.dtb \
-	msm8953-cdp-1200p.dtb \
-	msm8953-iot-mtp.dtb \
-	apq8053-iot-mtp.dtb \
-	apq8053-lite-dragon-v1.0.dtb \
-	apq8053-lite-dragon-v2.0.dtb \
-	apq8053-lite-dragon-v2.1.dtb \
-	apq8053-lite-dragon-v2.2.dtb \
-	apq8053-lite-dragon-v2.2.1.dtb \
-	apq8053-lite-dragon-v2.3.dtb \
-	apq8053-lite-dragon-v2.4.dtb \
-	apq8053-lat-concam-dev.dtb \
-	apq8053-lat-concam-proto.dtb \
-	msm8953-pmi8940-cdp.dtb \
-	msm8953-pmi8940-mtp.dtb \
-	msm8953-pmi8937-cdp.dtb \
-	msm8953-pmi8937-mtp.dtb \
-	msm8953-pmi8940-ext-codec-mtp.dtb \
-	msm8953-pmi8937-ext-codec-mtp.dtb \
-	msm8953-pmi632-cdp-s2.dtb
+	
 endif
 
 dtb-$(CONFIG_ARCH_MSM8937) += msm8937-pmi8950-mtp.dtb \
